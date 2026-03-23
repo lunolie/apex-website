@@ -3,45 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>apex</title>
+
     <style>
-        @import url('https://fonts.cdnfonts.com/css/sf-pro-display?styles=98773');
+        /* gradient fix by ChatGPT */
+        /* gradient background made by @wilvander on codepen.io */
+
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
         @keyframes grad {
-            0% {color:skyblue; filter: drop-shadow(0 0 20px skyblue)}
+            0% {color: skyblue; filter: drop-shadow(0 0 20px skyblue)}
             25% {color: aqua; filter: drop-shadow(0 0 20px aqua)}
-            50% {color:purple; filter: drop-shadow(0 0 20px purple)}
-            75% {color:violet; filter: drop-shadow(0 0 20px violet)}
-            100% {color:skyblue; filter: drop-shadow(0 0 20px skyblue)}
+            50% {color: purple; filter: drop-shadow(0 0 20px purple)}
+            75% {color: violet; filter: drop-shadow(0 0 20px violet)}
+            100% {color: skyblue; filter: drop-shadow(0 0 20px skyblue)}
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         body {
-            font-family: 'SF Pro Display', sans-serif;
-            position: relative;
-            text-align: center;
-            background-color: black;
-            color: white
+            font-family: 'Google Sans', sans-serif;
+            margin: 0;
+            background-color: #071c39;
+            color: white;
+            overflow: hidden;
         }
-        h1 {
-            font-family: 'SF Pro Display', sans-serif;
+
+        .container {
             position: relative;
+            width: 100%;
+            height: 100vh;
             text-align: center;
+        }
+
+        h1 {
             font-size: 75px;
-            animation-timing-function: linear;
-            animation-name: grad;
-            animation-duration: 5s;
-            animation-iteration-count: infinite;
-    
+            margin: 50px 0 0;
+            animation: grad 5s linear infinite;
         }
 
         h2 {
             font-size: 35px;
+            margin: 10px 0 0;
         }
 
+        /* Wrapper handles centering */
+        .gradient-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Inner element handles animation */
+        .gradient {
+            --size: 750px;
+            --speed: 50s;
+            --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+
+            width: var(--size);
+            height: var(--size);
+            filter: blur(calc(var(--size) / 5));
+            background-image: linear-gradient(
+                hsl(222, 84%, 60%),
+                hsl(164, 79%, 71%)
+            );
+            animation: rotate var(--speed) var(--easing) infinite alternate;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        @media (min-width: 720px) {
+            .gradient {
+                --size: 500px;
+            }
+        }
+
+        * {
+            transition: all 0.5s ease-out;
+        }
     </style>
 </head>
+
 <body>
-    <h1>apex.</h1>
-    <h2>great things are coming</h2>
+    <div class="container">
+        <h1>apex.</h1>
+        <h2>great things are coming</h2>
+
+        <div class="gradient-wrapper">
+            <div class="gradient"></div>
+        </div>
+    </div>
 </body>
 </html>
