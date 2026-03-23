@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/sf-pro-display?styles=98773');
+
+        @keyframes grad {
+            0% {color:skyblue; filter: drop-shadow(0 0 20px skyblue)}
+            25% {color: aqua; filter: drop-shadow(0 0 20px aqua)}
+            50% {color:purple; filter: drop-shadow(0 0 20px purple)}
+            75% {color:violet; filter: drop-shadow(0 0 20px violet)}
+            100% {color:skyblue; filter: drop-shadow(0 0 20px skyblue)}
+        }
+
+        body {
+            font-family: 'SF Pro Display', sans-serif;
+            position: relative;
+            text-align: center;
+            background-color: black;
+            color: white
+        }
+        h1 {
+            font-family: 'SF Pro Display', sans-serif;
+            position: relative;
+            text-align: center;
+            font-size: 75px;
+            animation-timing-function: linear;
+            animation-name: grad;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+    
+        }
+
+        h2 {
+            font-size: 35px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>apex</h1>
+    <h2>great things are coming</h2>
+</body>
+</html>
